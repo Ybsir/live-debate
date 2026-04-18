@@ -1,6 +1,6 @@
 {
     "name" : "LIVE",
-    "appid" : "__UNI__3E17BDA",
+    "appid" : "__UNI__DCB6F70",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -62,7 +62,7 @@
                 "desc" : "用于直播流播放"
             }
         },
-        "requiredPrivateInfos" : ["getLocation"],
+        "requiredPrivateInfos" : [ "getLocation" ],
         "lazyCodeLoading" : "requiredComponents"
     },
     "mp-alipay" : {

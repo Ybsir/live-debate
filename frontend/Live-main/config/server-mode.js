@@ -25,7 +25,7 @@ export const LOCAL_SERVER_URL = 'http://localhost:8080';
 /** 本仓库独立 mock 后端（见 /backend，默认端口 8000） */
 export const LOCAL_BACKEND_URL = 'http://localhost:8000';
 export const MIDDLEWARE_SERVER_URL = 'http://192.168.31.249:8081';  // 中间层服务器地址（直接连接 server.js，避免与 nginx 冲突）
-export const REAL_SERVER_URL = 'http://192.140.160.119:8000';  // 真实后端服务器地址
+export const REAL_SERVER_URL = 'http://124.222.21.147:8000';  // 真实后端服务器地址（公网）
 
 /**
  * 真实服务器端口（如果需要）
@@ -112,6 +112,6 @@ const printConfig = () => {
 // === 只改这一行即可一键切换全局API ===
 // export const API_BASE_URL = LOCAL_SERVER_URL; // 本地调试就用 LOCAL_SERVER_URL (http://localhost:8080)
 // export const API_BASE_URL = MIDDLEWARE_SERVER_URL; // 通过中间层服务器 (http://192.168.31.249:8081)
-// export const API_BASE_URL = REAL_SERVER_URL; // 直接连接远程后端
-export const API_BASE_URL = LOCAL_BACKEND_URL; // 连接本仓库 mock 后端 (http://localhost:8000)
+export const API_BASE_URL = REAL_SERVER_URL; // 公网后端
+// export const API_BASE_URL = LOCAL_BACKEND_URL; // 本地 mock：http://localhost:8000
 

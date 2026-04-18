@@ -8,13 +8,13 @@
 | 前端仓库 | [Live](https://github.com/xuelinc91-creator/Live)（`frontend/Live-main`） |
 | 网关仓库 | [live-gateway](https://github.com/xuelinc91-creator/live-gateway)（`gateway/live-gateway-main`） |
 
-## 演示地址（提交前请替换为你的公网地址）
+## 演示地址
 
 | 类型 | 地址 |
 |------|------|
-| 前端 H5（公网） | _部署后填写，例如 `https://xxx.pages.dev`_ |
-| 后端 API（公网） | _部署后填写，例如 `https://xxx.onrender.com`_ |
-| 管理端（可选） | 本地：`http://localhost:8080/admin`；公网需与网关同域或改 `admin/admin.js` 中 `BACKEND_URL` |
+| 前端 H5（公网） | `http://124.222.21.147` |
+| 后端 API（公网） | `http://124.222.21.147:8000`（健康检查：`/health`） |
+| 管理端（可选） | `http://124.222.21.147:8080/admin` |
 
 > 本地联调：**后端** `http://localhost:8000`，**网关** `http://localhost:8080`，**管理页静态与 `/static`** 由网关挂载至 `frontend/Live-main/static`。
 
@@ -23,7 +23,7 @@
 | 项 | 选择 |
 |----|------|
 | 后端框架 | Node.js 18+、Express 4 |
-| Mock 数据 | 内存对象 / `Map`；启动种子数据（直播流、辩题、AI 片段、票数）；未使用 Faker（可按需扩展） |
+| Mock 数据 | 内存对象 / `Map`；启动种子数据（直播流、辩题、AI 片段、票数） |
 | 跨域 | `cors`，`origin: *`，允许 `Authorization` |
 | 鉴权 | 演示环境不强制校验 Bearer；生产可接 JWT |
 | 部署 | `backend/Dockerfile`；`gateway/live-gateway-main/Dockerfile`；根目录 `docker-compose.yml` 一键起后端+网关 |
@@ -103,7 +103,7 @@ docker compose up --build
 题目要求：**前端可公网访问 + 接口正常**。常见拆法：
 
 1. **后端**：将 `backend` 部署到 Render / Railway / Fly.io / 云主机 Docker，暴露 HTTPS，设置环境变量 `PORT`。
-2. **前端 H5**：HBuilderX **发行 → 网站-H5**，将 `unpackage/dist/build/h5` 静态资源上传到 **Cloudflare Pages / Vercel / Nginx**。
+2. **前端 H5**：HBuilderX **发行 → 网站-H5**，将 `unpackage/dist/build/web` 静态资源上传到 **Cloudflare Pages / Vercel / Nginx**。
 3. **跨域**：将 `frontend/Live-main/config/server-mode.js` 中 `API_BASE_URL` / `REAL_SERVER_URL` 改为你的**公网后端地址**，重新发行 H5。
 4. **网关**：若仅需管理端，可将 `gateway` 镜像部署到同一 VPS，端口 `8080`；管理页 `admin/admin.js` 里 `BACKEND_URL` 指向公网后端。
 
@@ -138,19 +138,9 @@ docker compose up --build
 
 ## 个人介绍
 
-_（请填写：姓名/昵称、常用技术栈、方向、本作业耗时与收获等）_
+我主语言是 Java，熟悉 Spring Boot、Spring Cloud、MyBatis-Plus 等主流后端框架，掌握 MySQL、Redis、Linux、Docker 等技术，也了解微服务与 AI 大模型集成开发。擅长后端业务实现、接口优化、缓存设计与项目工程化搭建，目前专注于 Java 后端与云原生、AI 应用开发方向，希望在企业级项目中持续提升架构与工程实践能力。  
+本次测试题投入约 1 天，完成了 Mock 后端、网关联调、管理端适配及 1Panel 公网部署，具备从本地开发到线上交付的完整实践经验。
 
 ---
 
-## 验收对照（自测）
 
-| 项 | 状态 |
-|----|------|
-| 项目可运行 | 本地 `health`、H5、管理端可通 |
-| 接口覆盖主要业务 | Mock 覆盖投票、辩题、AI、大屏、流、管理端常用 v1 接口 |
-| README | 含结构、接口、部署、笔记、限制说明 |
-| 可扩展性 | 见上文 |
-
-## 许可证
-
-MIT

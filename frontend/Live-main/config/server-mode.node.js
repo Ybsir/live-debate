@@ -3,10 +3,10 @@ const USE_MOCK_SERVER = false; // 改为 false 使用真实服务器
 const LOCAL_SERVER_URL = 'http://localhost:8080';
 // 部署服务器配置：使用环境变量或默认端口
 const DEPLOY_PORT = process.env.PORT || 8081; // 部署端口，可通过环境变量覆盖（改为8081）
-const REAL_SERVER_URL = `http://192.140.160.119:${DEPLOY_PORT}`; // 部署服务器地址
+const REAL_SERVER_URL = `http://124.222.21.147:${DEPLOY_PORT}`; // 部署服务器地址
 const REAL_SERVER_PORT = DEPLOY_PORT; // 部署服务器端口
 // 后端服务器配置（真正的后端服务器地址）
-const BACKEND_SERVER_URL = 'http://192.140.160.119:8000'; // 后端服务器地址
+const BACKEND_SERVER_URL = 'http://124.222.21.147:8000'; // 后端服务器地址
 // 是否优先使用后端服务器（设为 true 时，所有 API 请求会优先代理到后端服务器）
 // 注意：后台管理系统通过中间层代理访问后端服务器
 // 🔧 强制使用真实服务器：设为 true，所有 API 请求直接代理到后端服务器，不使用本地mock数据
