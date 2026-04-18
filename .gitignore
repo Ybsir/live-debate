@@ -1,3 +1,4 @@
+.git-commit-msg.txt
 node_modules/
 **/node_modules/
 .env
