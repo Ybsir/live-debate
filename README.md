@@ -130,6 +130,10 @@ docker compose up --build
 
 - Docker 构建网关时上下文须包含 `frontend/Live-main/static`，故 `Dockerfile` 放在网关目录但 **`docker build` 上下文为仓库根目录**（见 `docker-compose.yml`）。
 - 浏览器访问管理端时 API 走本机 IP 时注意 `BACKEND_URL` 与防火墙。
+- HBuilderX 导出 Web 时使用了原项目 `appid`，提示“非项目成员”导致发行失败；通过在 `manifest.json` 重新生成当前账号的 DCloud `appid` 后恢复正常。
+- 前端首次导出时 `API_BASE_URL` 仍是 `http://localhost:8000`，上线后浏览器实际访问的是用户本机 localhost，接口全部失败；改为公网 `http://124.222.21.147:8000` 并重新导出后解决。
+- 使用 `ubuntu` 账号直接 `scp` 到 `/opt/1panel/...` 出现权限不足；先上传到 `/home/ubuntu/live-h5-upload`，再通过 `sudo cp` 拷贝到网站目录可稳定发布。
+- 站点首次访问显示“站点创建成功”默认页，原因是文件未覆盖到实际 root 目录；将 `index.html`、`assets`、`static` 覆盖到 `/opt/1panel/www/sites/live-h5/index` 后恢复为业务页面。
 
 ### 可扩展性
 
