@@ -107,7 +107,7 @@ docker compose up --build
 3. **跨域**：将 `frontend/Live-main/config/server-mode.js` 中 `API_BASE_URL` / `REAL_SERVER_URL` 改为你的**公网后端地址**，重新发行 H5。
 4. **网关**：若仅需管理端，可将 `gateway` 镜像部署到同一 VPS，端口 `8080`；管理页 `admin/admin.js` 里 `BACKEND_URL` 指向公网后端。
 
-**无法实现或简化的部分**（诚实说明）：
+**无法实现或简化的部分**：
 
 - 真实微信 `jscode2session`、支付、SRS 推拉流：本仓库为 Mock / 占位 URL。
 - 部分扩展管理接口（如个别 `debate-flow`）未实现，返回 404 JSON。
