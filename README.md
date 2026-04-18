@@ -126,7 +126,7 @@ docker compose up --build
 - 后端与网关同时开：`8000` API + `8080` 管理页；或仅后端 + H5 直连 `8000`。
 - WebSocket：与 `API_BASE_URL` 同主机 `:端口/ws`。
 
-### 部署踩坑记录（可自行补充）
+### 部署踩坑记录
 
 - Docker 构建网关时上下文须包含 `frontend/Live-main/static`，故 `Dockerfile` 放在网关目录但 **`docker build` 上下文为仓库根目录**（见 `docker-compose.yml`）。
 - 浏览器访问管理端时 API 走本机 IP 时注意 `BACKEND_URL` 与防火墙。
