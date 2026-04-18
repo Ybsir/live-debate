@@ -1,0 +1,12 @@
+# Render Blueprint（可选）：在 Render 控制台关联本仓库后可用
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: live-debate-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
